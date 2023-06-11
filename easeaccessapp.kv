@@ -1,0 +1,258 @@
+#BoxLayoutMain:
+
+<BoxLayoutMain>:
+
+    canvas.before:
+        Color:
+            rgba: 0.89, 0.79, 0.77, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    orientation: "horizontal"
+    padding:15
+    #spacing:
+
+    BoxLayout:
+        size_hint: 0.7, 1
+        orientation: "horizontal"
+        spacing:5
+
+        BoxLayout:
+            size_hint: 0.6, 1
+            orientation: "vertical"
+            spacing:5
+
+            Label:
+                #text: "Налаштувати час очікування\n перед виконанням дії"
+                text: "Налаштувати час очікування"
+                size_hint: 0., 1
+                pos_hint: {"x":0.4}
+                bold: True
+                #font_name: "Comic"
+                color: (0.2, 0.4, 0.52, 0.98)
+                font_size: 20
+
+            BoxLayout:
+                spacing:5
+                orientation: "horizontal"
+
+                Label:
+                    text: "   "
+                    size_hint: 0.4, 1
+                    font_name: "Comic"
+                    color: (0.2, 0.4, 0.52, 0.98)
+                    font_size: 15
+                Label:
+                    text: "Перед \nдією"
+                    size_hint: 0.3, 1
+                    color: (0.2, 0.4, 0.52, 0.98)
+                    font_name: "Comic"
+                    font_size: 15
+                Label:
+                    text: "Час \nтишини"
+                    size_hint: 0.2, 1
+                    font_name: "Comic"
+                    color: (0.2, 0.4, 0.52, 0.98)
+                    font_size: 15
+
+            BoxLayout:
+                spacing:5
+                orientation: "horizontal"
+
+                Label:
+                    text: "Клік   "
+                    size_hint: 0.4, 1
+                    font_name: "Comic"
+                    color: (0.2, 0.4, 0.52, 0.98)
+                    font_size: 15
+
+                Spinner:
+                    id: spn_click
+                    size_hint: 0.3, 0.9
+                    text: "1000 мс"
+                    on_text: root.select_click()
+                    values: ["500 мс", "750 мс", "1000 мс", "1250 мс", "1500 мс"]
+                Spinner:
+                    id: spn_click_quiet
+                    size_hint: 0.3, 0.9
+                    text: "500 мс"
+                    on_text: root.select_click_quiet()
+                    values: ["0 мс", "500 мс", "1000 мс", "1500 мс", "2000 мс"]
+
+            BoxLayout:
+                spacing:5
+                orientation: "horizontal"
+
+                Label:
+                    text: "Подвійний клік"
+                    size_hint: 0.4, 1
+                    font_name: "Comic"
+                    color: (0.2, 0.4, 0.52, 0.98)
+                    font_size: 15
+
+                Spinner:
+                    id: spn_dbl_click
+                    size_hint: 0.3, 0.9
+                    text: "1000 мс"
+                    on_text: root.select_dbl_click()
+                    values: ["500 мс", "750 мс", "1000 мс", "1250 мс", "1500 мс"]
+                Spinner:
+                    id: spn_dbl_click_quiet
+                    size_hint: 0.3, 0.9
+                    text: "2000 мс"
+                    on_text: root.select_dbl_click_quiet()
+                    values: ["0 мс", "500 мс", "1000 мс", "1500 мс", "2000 мс"]
+
+            BoxLayout:
+                orientation: "horizontal"
+                spacing:5
+
+                Label:
+                    text: "Нажаття на кла-\nвішу клавіатури"
+                    size_hint: 0.4, 0.9
+                    font_name: "Comic"
+                    color: (0.2, 0.4, 0.52, 0.98)
+                    font_size: 15
+
+                Spinner:
+                    id: spn_press
+                    size_hint: 0.3, 0.9
+                    text: "1000 мс"
+                    on_text: root.select_press()
+                    values: ["500 мс", "750 мс", "1000 мс", "1250 мс", "1500 мс"]
+
+                Spinner:
+                    id: spn_press_quiet
+                    size_hint: 0.3, 0.9
+                    text: "0 мс"
+                    on_text: root.select_press_quiet()
+                    values: ["0 мс", "500 мс", "1000 мс", "1500 мс", "2000 мс"]
+
+            BoxLayout:
+                orientation: "horizontal"
+                Label:
+                    text: "Інші налаштування"
+                    size_hint: 0.2,0.4
+                    pos_hint: {"x":0.3, "y":0.3}
+                    bold: True
+                    #font_name: "Comic"
+                    color: (0.2, 0.4, 0.52, 0.98)
+                    font_size: 20
+
+            BoxLayout:
+                orientation: "horizontal"
+
+                Label:
+                    text: "Плавність руху курсора"
+                    size_hint: 0.65,0.9
+                    font_name: "Comic"
+                    color: (0.2, 0.4, 0.52, 0.98)
+                    font_size: 15
+
+                Spinner:
+                    id: spn_avg
+                    size_hint: 0.35,0.9
+                    text: "Середня"
+                    on_text: root.select_avg()
+                    values: ["Дуже низька", "Низька", "Середня", "Висока", "Дуже висока"]
+
+            BoxLayout:
+                orientation: "horizontal"
+
+                Label:
+                    text: "Оберіть камеру"
+                    size_hint: 0.65,0.9
+                    font_name: "Comic"
+                    color: (0.2, 0.4, 0.52, 0.98)
+                    font_size: 15
+
+                Spinner:
+                    id: spn_camera
+                    size_hint: 0.35, 0.9
+                    text: "Вбудована"
+                    on_text: root.select_camera()
+                    values: ["Вбудована", "Інше"]
+
+            BoxLayout:
+                orientation: "horizontal"
+
+                Label:
+                    text: "Око для виконання\nподвійного кліку"
+                    size_hint: 0.65,0.9
+                    font_name: "Comic"
+                    color: (0.2, 0.4, 0.52, 0.98)
+                    font_size: 15
+
+                Spinner:
+                    id: spn_eye
+                    size_hint: 0.35,0.9
+                    text: "Праве"
+                    on_text: root.select_eye()
+                    values: ["Праве", "Ліве"]
+
+            BoxLayout:
+                orientation: "horizontal"
+
+                Label:
+                    text: "Точка відстеження\nдля руху курсора"
+                    size_hint: 0.65,0.9
+                    font_name: "Comic"
+                    color: (0.2, 0.4, 0.52, 0.98)
+                    font_size: 15
+
+                Spinner:
+                    id: spn_point_mouse_move
+                    size_hint: 0.35,0.9
+                    text: "Ніс"
+                    on_text: root.select_point_mouse_move()
+                    values: ["Ніс", "Центр лоба"]
+
+            BoxLayout:
+                orientation: "horizontal"
+
+                Label:
+                    text: "Розміщення курсора після\nзапуску програми"
+                    size_hint: 0.65,0.9
+                    font_name: "Comic"
+                    color: (0.2, 0.4, 0.52, 0.98)
+                    font_size: 15
+
+                Spinner:
+                    id: spn_mouse_pos
+                    size_hint: 0.35,0.9
+                    text: "Центр"
+                    on_text: root.select_mouse_pos()
+                    values: ["Центр", "Не зміщувати"]
+            Label:
+                text:"   "
+                size_hint_y: 0.07
+
+        BoxLayout:
+            size_hint: 0.3, 1
+            orientation: "vertical"
+            padding:30
+            spacing: 70
+
+            Button:
+                text: "    Скинути\n   налаштування \n   до початкових"
+                size_hint: 1, 0.3
+                on_press: root.on_default_setting_click()
+                background_color: (0.77, 0.93, 0.99, 0.98)
+                font_size: 18
+                #color: (0.96, 0.55, 0.3, 0.8)
+
+            Button:
+                text: "     Зберегти \n   налаштування"
+                size_hint: 1, 0.3
+                on_press: root.on_save_click()
+                background_color: (0.77, 0.93, 0.99, 0.98)
+                font_size: 18
+                #color: (0.96, 0.55, 0.3, 0.8)
+
+            Button:
+                text: " Почати \n  роботу"
+                size_hint: 1, 0.3
+                on_press: root.on_start_click()
+                background_color: (0.77, 0.93, 0.99, 0.98)
+                font_size: 24
+                #color: (0.96, 0.55, 0.3, 0.8)
